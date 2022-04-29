@@ -15,7 +15,7 @@ model Message {
 
   //przekazanie parametru username
   //userNamePass String
-  username String @unique
+  username String
   //User User @relation(fields: [userNamePass], references: [username])
 
 
