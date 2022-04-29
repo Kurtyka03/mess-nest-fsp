@@ -36,11 +36,6 @@ export class MessageService {
             }) 
             return mess;
         } catch (error) {
-            if(error instanceof PrismaClientKnownRequestError){
-                if(error.code === 'P2002'){
-                    throw new ForbiddenException('Email Taken');
-                }
-            }
             throw error;
         }
     }
