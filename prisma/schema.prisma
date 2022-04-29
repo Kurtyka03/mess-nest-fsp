@@ -14,9 +14,9 @@ model Message {
   id Int @id @default(autoincrement())
 
   //przekazanie parametru username
-  userNamePass String
+  //userNamePass String
   username String @unique
-  User User @relation(fields: [userNamePass], references: [username])
+  //User User @relation(fields: [userNamePass], references: [username])
 
 
   message String
@@ -34,7 +34,7 @@ model User {
 
   email String @unique
   hash String
-  //przekazanie calej bd do tabeli Message
-  mesagges Message[]
+  //przekazanie calej bd do message
+  //mesagges Message[]
   @@map("users")
 }
