@@ -10,10 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Message {
   id Int @id @default(autoincrement())
-  username String
+
+  //przekazanie parametru username
+  userNamePass String
+  username String @unique
+  User User @relation(fields: [userNamePass], references: [username])
+
+
   message String
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
+
+  @@map("messages")
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  username String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email String @unique
+  hash String
+  //przekazanie calej bd do tabeli Message
+  mesagges Message[]
+  @@map("users")
 }
